@@ -6,13 +6,15 @@ function AgregarArticulo() {
   const [nombre, setNombre] = useState('')
   const [marca, setMarca] = useState('')
   const [tipo, setTipo] = useState('')
+  const [cantidad, setCantidad] = useState('')
 
   const manejarEnvio = (e) => {
     e.preventDefault()
-    agregarArticulo({ nombre, marca, tipo })
+    agregarArticulo({ nombre, marca, tipo, cantidad: Number(cantidad) })
     setNombre('')
     setMarca('')
     setTipo('')
+    setCantidad('')
   }
 
   return (
@@ -28,8 +30,19 @@ function AgregarArticulo() {
           <input className="form-control" value={marca} onChange={(e) => setMarca(e.target.value)} required />
         </div>
         <div className="mb-3">
-          <label className="form-label">Tipo de producto</label>
+          <label className="form-label">Tipo de producto (categoría)</label>
           <input className="form-control" value={tipo} onChange={(e) => setTipo(e.target.value)} required />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Cantidad disponible</label>
+          <input
+            type="number"
+            min="1"
+            className="form-control"
+            value={cantidad}
+            onChange={(e) => setCantidad(e.target.value)}
+            required
+          />
         </div>
         <button type="submit" className="btn btn-primary">Agregar</button>
       </form>

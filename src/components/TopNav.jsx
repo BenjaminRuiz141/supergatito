@@ -8,6 +8,7 @@ function TopNav() {
       <div className="d-flex gap-3">
         <Link className="nav-link text-white" to="/agregar">Agregar artículo</Link>
         <Link className="nav-link text-white" to="/inventario">Inventario</Link>
+        <Link className="nav-link text-white" to="/carrito">Carrito</Link>
       </div>
     </nav>
   )
